@@ -2,6 +2,17 @@
 
 return [
 
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    */
+    'name' => env('APP_NAME', 'PHPHub'),
+
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -13,7 +24,7 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG'),
+    'debug' => env('APP_DEBUG', false),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +37,9 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+    'url'         => env('APP_URL'),
+    'url_static'  => env('URL_STATIC'),
+    'user_static' => env('USER_STATIC'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +52,10 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+    'timezone' => env('TIMEZONE') ? :'UTC',
+
+    'wiki_topic_id' => env('WIKI_TOPIC_ID') ?:1,
+    'admin_board_cid' => env('ADMIN_BOARD_CID') ?:0,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +68,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+    'locale' => env('LOCALE') ? :'en',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -95,7 +111,7 @@ return [
 	|
 	*/
 
-	'log' => 'daily',
+    'log' => env('APP_LOG', 'single'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -113,48 +129,71 @@ return [
 		/*
 		 * Laravel Framework Service Providers...
 		 */
-		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-		'Illuminate\Auth\AuthServiceProvider',
-		'Illuminate\Bus\BusServiceProvider',
-		'Illuminate\Cache\CacheServiceProvider',
-		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-		'Illuminate\Routing\ControllerServiceProvider',
-		'Illuminate\Cookie\CookieServiceProvider',
-		'Illuminate\Database\DatabaseServiceProvider',
-		'Illuminate\Encryption\EncryptionServiceProvider',
-		'Illuminate\Filesystem\FilesystemServiceProvider',
-		'Illuminate\Foundation\Providers\FoundationServiceProvider',
-		'Illuminate\Hashing\HashServiceProvider',
-		'Illuminate\Mail\MailServiceProvider',
-		'Illuminate\Pagination\PaginationServiceProvider',
-		'Illuminate\Pipeline\PipelineServiceProvider',
-		'Illuminate\Queue\QueueServiceProvider',
-		'Illuminate\Redis\RedisServiceProvider',
-		'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
-		'Illuminate\Session\SessionServiceProvider',
-		'Illuminate\Translation\TranslationServiceProvider',
-		'Illuminate\Validation\ValidationServiceProvider',
-		'Illuminate\View\ViewServiceProvider',
+        //Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
+        Illuminate\Broadcasting\BroadcastServiceProvider::class,
+        Illuminate\Bus\BusServiceProvider::class,
+        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+        Illuminate\Cookie\CookieServiceProvider::class,
+        Illuminate\Database\DatabaseServiceProvider::class,
+        Illuminate\Encryption\EncryptionServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+        Illuminate\Hashing\HashServiceProvider::class,
+        Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Pagination\PaginationServiceProvider::class,
+        Illuminate\Pipeline\PipelineServiceProvider::class,
+        Illuminate\Queue\QueueServiceProvider::class,
+        Illuminate\Redis\RedisServiceProvider::class,
+        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+        Illuminate\Session\SessionServiceProvider::class,
+        Illuminate\Translation\TranslationServiceProvider::class,
+        Illuminate\Validation\ValidationServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
-		'App\Providers\ConfigServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
-		
+        App\Providers\AppServiceProvider::class,
+        //App\Providers\AuthServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        //App\Providers\ComposerServiceProvider::class,
+
+
+        //Mews\Purifier\PurifierServiceProvider::class,
+        //Intervention\Image\ImageServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        //Zizaco\Entrust\EntrustServiceProvider::class,
+        //Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+
 		Laravel\Socialite\SocialiteServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+
+        //Orangehill\Iseed\IseedServiceProvider::class,
+        //EstGroupe\Taggable\Providers\TaggingServiceProvider::class,
+        //Frozennode\Administrator\AdministratorServiceProvider::class,
+        //SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        //Thujohn\Rss\RssServiceProvider::class,
+
+
+
 		Conner\Tagging\Providers\TaggingServiceProvider::class,
 		Roumen\Sitemap\SitemapServiceProvider::class,
-		
+        //Spatie\Backup\BackupServiceProvider::class,		
 /*		'Collective\Html\HtmlServiceProvider',*/
+        //SocialiteProviders\Manager\ServiceProvider::class,
 		'App\Services\Html\HtmlServiceProvider',
 		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
-		'Laracasts\Flash\FlashServiceProvider',
-		'Zizaco\Entrust\EntrustServiceProvider'
 
+
+        // API
+        //Dingo\Api\Provider\LaravelServiceProvider::class,
+        //LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
+        //LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
+        //App\Providers\OAuthServiceProvider::class,
+        //App\Providers\ApiExceptionHandlerProvider::class,
 	],
 
 	/*
