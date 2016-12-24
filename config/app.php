@@ -168,7 +168,7 @@ return [
         //Zizaco\Entrust\EntrustServiceProvider::class,
         //Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
-		Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
 
         //Orangehill\Iseed\IseedServiceProvider::class,
@@ -179,14 +179,15 @@ return [
 
 
 
-		Conner\Tagging\Providers\TaggingServiceProvider::class,
-		Roumen\Sitemap\SitemapServiceProvider::class,
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
         //Spatie\Backup\BackupServiceProvider::class,		
 /*		'Collective\Html\HtmlServiceProvider',*/
         //SocialiteProviders\Manager\ServiceProvider::class,
-		'App\Services\Html\HtmlServiceProvider',
-		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
-
+        'App\Services\Html\HtmlServiceProvider',
+        'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         // API
         //Dingo\Api\Provider\LaravelServiceProvider::class,
@@ -242,10 +243,12 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		
+    'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
 		'Html'      => 'Collective\Html\HtmlFacade',
-        'Form'      => 'Collective\Html\FormFacade',
+    'Form'      => 'Collective\Html\FormFacade',
 		'Cart'      => 'Gloudemans\Shoppingcart\Facades\Cart',
-        'Flash'     => 'Laracasts\Flash\Flash',
+    'Flash'     => 'Laracasts\Flash\Flash',
 		
 		'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 		
