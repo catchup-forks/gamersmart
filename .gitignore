@@ -10,3 +10,4 @@
 /app/storage/*
 .idea/workspace.xml
 /public/assets/uploads/*
+/composer.lock

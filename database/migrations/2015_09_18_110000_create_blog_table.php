@@ -8,7 +8,8 @@ class CreateBlogTable extends Migration {
         Schema::create("blogs", function($table) {
                     $table->engine = "InnoDB";
                     $table->increments("id");
-                    
+
+                    $table->integer("category_id");
                     $table->string("title");
                     $table->string("url")->unique();
                     $table->string("sourceurl")->unique();
@@ -25,7 +26,7 @@ class CreateBlogTable extends Migration {
                     
                     $table->text("header")->nullable();
                     
-                    $table->integer("category_id");
+
                     $table->string("author")->default("Kara Guru");
                     $table->boolean("is_comments_allowed")->default(true);
                     $table->integer("comments_days")->default(0); //0 is unlimited days

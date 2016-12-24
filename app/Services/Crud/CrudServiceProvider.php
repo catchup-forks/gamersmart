@@ -3,6 +3,10 @@
 use Illuminate\Support\ServiceProvider;
 
 class CrudServiceProvider extends ServiceProvider {
+
+	public function register()
+	{}
+	
 	
 	/**
 	 * Register the form builder instance.
@@ -11,7 +15,10 @@ class CrudServiceProvider extends ServiceProvider {
 	 */
 	protected function registerCrudFactory()
 	{
-		$this->app->bindShared('crud', function($app)
+		//$app->singleton()
+		
+		
+		$this->app->singleton('crud', function($app)
 		{
 			//$crud = new CrudFactory();
 		});
