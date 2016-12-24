@@ -1,4 +1,5 @@
 /vendor
+/vendor/**/.git
 /node_modules
 .env
 /app/Http/Controllers/.gitkeep
